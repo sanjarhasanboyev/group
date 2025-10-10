@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - O'quvchilar Loyihasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-r from-teal-50 to-teal-100 min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-teal-600 text-white p-4 h-screen fixed">
+        <h2 class="text-xl font-bold mb-4">O'quvchilar</h2>
+        <ul id="student-list" class="space-y-2">
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Shohrux Bozorov')">Shohrux Bozorov</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Farangiz')">Farangiz</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Gulnoza')">Gulnoza</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Hilola')">Hilola</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Mashxura')">Mashxura</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Anvar')">Anvar</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Shohruh')">Shohruh</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Asqarbek')">Asqarbek</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Sulaymon')">Sulaymon</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Mirjalol')">Mirjalol</a></li>
+            <li><a href="#" class="block p-2 hover:bg-teal-700 rounded" onclick="showSection('Ibrohim')">Ibrohim</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-6 w-full">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Admin Panel Shabloni</h1>
+            <div id="content-area">
+                <!-- O'quvchi kodi shu yerga qo'shiladi -->
+                <p class="text-gray-600">Ismni tanlang yoki o'z kodingizni qo'shish uchun sidebar'dan foydalaning.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showSection(studentName) {
+            const contentArea = document.getElementById('content-area');
+            contentArea.innerHTML = `
+                <h2 class="text-xl font-semibold mb-4">${studentName}ning vazifasi</h2>
+                <div class="border p-4 rounded-lg bg-gray-50">
+                    <!-- ${studentName} kodi shu yerga qo'shiladi -->
+                    <p class="text-gray-600">Bu yerda ${studentName} o'z HTML/CSS kodini qo'shadi.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
