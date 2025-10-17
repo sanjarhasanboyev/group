@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oddiy, zamonaviy HTML sahifa</title>
+  <meta name="description" content="Minimal responsive landing page - HTML, CSS va ozgina JS" />
+  <link rel="stylesheet" href="
+  style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">U</div>
+        <div>
+          <div style="font-weight:700">Sizning Sayt</div>
+          <div style="font-size:0.85rem;color:var(--muted);margin-top:2px">Oddiy va tez</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Xususiyatlar</a>
+        <a href="#about">Haqida</a>
+        <a href="#contact">Bog'lanish</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section>
+        <h1>Tez, chiroyli va responsiv HTML boshlang'ich sahifa</h1>
+        <p class="lead">Bu shablon kichik loyihalar, portfoliolar yoki MVP uchun mos keladi. Siz uni o'zgartirib, o'zingizning brendingizga moslashtirishingiz mumkin.</p>
+        <a class="cta" href="#contact">Bepul maslahat oling</a>
+
+        <div class="features" id="features">
+          <div class="card">
+            <h3>Yengil va tez</h3>
+            <p class="muted">Minimal CSS va oddiy struktura sahifani tez yuklanishini ta'minlaydi.</p>
+          </div>
+          <div class="card">
+            <h3>Responsive</h3>
+            <p class="muted">Telefon, planshet va desktop uchun moslashuv.</p>
+          </div>
+          <div class="card">
+            <h3>Oson sozlash</h3>
+            <p class="muted">Ranglar, shriftlar va tartibni bir necha satr bilan o'zgartiring.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h3 id="about">Kontakt va demo</h3>
+        <p class="muted">Quyidagi form orqali bizga xabar yuboring — sahifadan ozgina JS orqali tekshirish amalga oshiriladi.</p>
+
+        <form id="contactForm">
+          <input id="name" placeholder="Ismingiz" required />
+          <input id="email" type="email" placeholder="Email@misol.uz" required />
+          <textarea id="message" rows="5" placeholder="Xabaringiz..." required></textarea>
+          <button type="submit">Yuborish</button>
+          <div id="formResult" class="muted" aria-live="polite" style="margin-top:8px"></div>
+        </form>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Sizning Sayt — Barcha huquqlar saqlangan.</div>
+      <div>Made with ❤️ • <span class="muted">Minimal HTML/CSS</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // Oddiy formani tekshirish va demo xabari
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contactForm');
+    const result = document.getElementById('formResult');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        result.textContent = 'Iltimos, barcha maydonlarni to' + "'" + 'ldiring.';
+        return;
+      }
+
+      // Bu yerga haqiqiy serverga yuborish kodini qo'yishingiz mumkin (fetch/ajax)
+      result.textContent = 'Xabaringiz qabul qilindi — rahmat, ' + name + '!';
+
+      // demo uchun forma tozalash
+      form.reset();
+      setTimeout(()=> result.textContent = '', 5000);
+    });
+  </script>
+</body>
+</html>
